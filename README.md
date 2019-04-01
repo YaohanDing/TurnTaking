@@ -13,4 +13,4 @@ python annotator.py --video_path <path_to_your_video>
 
 4. The video annotator will automatically play. When annotating, pause the video by pressing ``space`` and assign label by pressing 'r' for turn requesting, 'y' for turn yielding, and 'n' for an negative example.
 
-5. Following the screen, select one of the listed cues.
+5. Following the instructions on the screen, select one of the listed cues.
