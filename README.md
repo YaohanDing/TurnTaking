@@ -1,0 +1,1 @@
+To run this annotator, please install the pre-requisites by "pip install -r requirements.txt"
