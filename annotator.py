@@ -63,7 +63,7 @@ def main():
                     print("step back to:", curr_frame)
 
                 if key == ord('d'):  # "d" is pressed, step forward
-                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames))
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames - 1))
                     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
                     ret, frame = cap.read()
                     if curr_frame in output:
@@ -109,7 +109,7 @@ def main():
                     output[curr_frame] = data
 
                     # Step forward 1 frame
-                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames))
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames - 1))
                     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
                     ret, frame = cap.read()
                     if curr_frame in output:
@@ -155,7 +155,7 @@ def main():
                     output[curr_frame] = data
 
                     # Step forward 1 frame
-                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames))
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames - 1))
                     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
                     ret, frame = cap.read()
                     
@@ -205,7 +205,7 @@ def main():
                     output[curr_frame] = data
 
                     # Step forward 1 frame
-                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames))
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + 1, total_frames - 1))
                     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
                     ret, frame = cap.read()
                     
@@ -241,7 +241,7 @@ def main():
             print("step back to:", curr_frame)
 
         if key == ord('d'):  # "d" is pressed
-            cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + args.step, total_frames))
+            cap.set(cv2.CAP_PROP_POS_FRAMES, min(curr_frame + args.step, total_frames - 1))
             curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
             print("step forward to:", curr_frame)
 
