@@ -21,7 +21,7 @@ def main():
     total_frames = cap.get(cv2.CAP_PROP_FRAME_COUNT)
     record = False
     output = OrderedDict()
-    while curr_frame < 40:
+    while curr_frame < total_frames:
         ret, frame = cap.read()
         curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
         print(curr_frame)
@@ -48,7 +48,7 @@ def main():
                 exit()
             # During pause, check to see if <space> is pressed.
             # If so, release the pause.
-            while key != ord(' ') and curr_frame < 40:
+            while key != ord(' ') and curr_frame < total_frames:
                 if key == ord('a'):  # "a" is pressed step backwards
                     cap.set(cv2.CAP_PROP_POS_FRAMES, max(curr_frame - 1, 0))
                     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
@@ -92,17 +92,17 @@ def main():
 
                     # Visualize cue selections
                     for i, c in enumerate(cues):
-                        cv2.putText(frame, "%d. %s" % (i+1, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+                        cv2.putText(frame, "%d. %s" % (i, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
                     cv2.imshow('im', frame)
                     
                     # Select the cue to this frame from 1 to 6
                     selection = cv2.waitKey()
-                    while selection not in range(49, 49 + len(cues)):
+                    while selection not in range(48, 48 + len(cues)):
                         selection = cv2.waitKey()
 
                     # record and visualize the selection
                     num = selection-48
-                    data.append(cues[num-1])
+                    data.append(cues[num])
                     output[curr_frame] = data
                     text = 'Frame: %d, ' % curr_frame + str(data)
                     cv2.putText(frame, text, (0, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
@@ -138,17 +138,17 @@ def main():
 
                     # Visualize cue selections
                     for i, c in enumerate(cues):
-                        cv2.putText(frame, "%d. %s" % (i+1, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+                        cv2.putText(frame, "%d. %s" % (i, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
                     cv2.imshow('im', frame)
                     
                     # Select the cue to this frame from 1 to 6
                     selection = cv2.waitKey()
-                    while selection not in range(49, 49 + len(cues)):
+                    while selection not in range(48, 48 + len(cues)):
                         selection = cv2.waitKey()
 
                     # record and visualize the selection
                     num = selection-48
-                    data.append(cues[num-1])
+                    data.append(cues[num])
                     output[curr_frame] = data
                     text = 'Frame: %d, ' % curr_frame + str(data)
                     cv2.putText(frame, text, (0, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
@@ -188,17 +188,17 @@ def main():
 
                     # Visualize cue selections
                     for i, c in enumerate(cues):
-                        cv2.putText(frame, "%d. %s" % (i+1, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
+                        cv2.putText(frame, "%d. %s" % (i, c), (0, 20 * (i+2)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
                     cv2.imshow('im', frame)
                     
                     # Select the cue to this frame from 1 to 6
                     selection = cv2.waitKey()
-                    while selection not in range(49, 49 + len(cues)):
+                    while selection not in range(48, 48 + len(cues)):
                         selection = cv2.waitKey()
 
                     # record and visualize the selection
                     num = selection-48
-                    data.append(cues[num-1])
+                    data.append(cues[num])
                     output[curr_frame] = data
                     text = 'Frame: %d, ' % curr_frame + str(data)
                     cv2.putText(frame, text, (0, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2, cv2.LINE_AA)
